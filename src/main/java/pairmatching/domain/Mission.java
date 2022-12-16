@@ -9,4 +9,12 @@ public class Mission {
         this.name = name;
         this.level = level;
     }
+
+    public boolean isMissionLevel(Level level) {
+        return this.level.equals(level);
+    }
+
+    public String getName() {
+        return name;
+    }
 }

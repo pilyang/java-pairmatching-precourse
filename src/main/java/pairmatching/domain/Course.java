@@ -20,4 +20,8 @@ public enum Course {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException());
     }
+
+    public String getName() {
+        return name;
+    }
 }

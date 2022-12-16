@@ -32,4 +32,8 @@ public enum Level {
         return missionFileSource;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

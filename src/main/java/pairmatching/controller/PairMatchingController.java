@@ -8,14 +8,17 @@ import pairmatching.domain.WoowaCourse;
 import pairmatching.util.RepeatValidator;
 import pairmatching.view.FileInputView;
 import pairmatching.view.InputView;
+import pairmatching.view.OutputView;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class PairMatchingController {
 
     private final FileInputView fileInputView;
     private final InputView inputView;
+    private final OutputView outputView;
 
     private final WoowaCourse woowaCourse;
 
@@ -23,6 +26,7 @@ public class PairMatchingController {
         woowaCourse = new WoowaCourse();
         fileInputView = new FileInputView();
         inputView = new InputView();
+        outputView = new OutputView();
 
         initCourse();
     }
@@ -59,6 +63,10 @@ public class PairMatchingController {
 
     private ProgramFunction readNextFunction() {
         return RepeatValidator.readUntilValidate(() -> inputView.readNextFunction());
+    }
+
+    public void showMissionTable() {
+        outputView.printCourseAndMissionTable(Arrays.asList(Course.values()), woowaCourse.getMissions());
     }
 
 }
