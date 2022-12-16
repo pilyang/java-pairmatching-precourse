@@ -13,7 +13,7 @@ public class FileInputView {
     public List<String> readCrewNamesFromFile(String fileName) throws IOException {
         BufferedReader crewReader = new BufferedReader(new FileReader(fileName));
         try {
-            return makeCrewNamesFrom(crewReader);
+            return readLines(crewReader);
         } catch (IOException e) {
         } finally {
             crewReader.close();
@@ -21,15 +21,15 @@ public class FileInputView {
         throw new IllegalArgumentException(FILE_READING_EXCEPTION_MESSAGE);
     }
 
-    private List<String> makeCrewNamesFrom(BufferedReader crewReader) throws IOException {
-        List<String> names = new ArrayList<>();
+    private List<String> readLines(BufferedReader crewReader) throws IOException {
+        List<String> lines = new ArrayList<>();
         while (true) {
-            String name = crewReader.readLine();
-            if (name == null) {
+            String line = crewReader.readLine();
+            if (line == null || line.equals("")) {
                 break;
             }
-            names.add(name);
+            lines.add(line);
         }
-        return names;
+        return lines;
     }
 }
