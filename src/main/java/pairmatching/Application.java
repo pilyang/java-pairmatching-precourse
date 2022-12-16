@@ -8,7 +8,6 @@ public class Application {
     public static void main(String[] args) {
         try {
             PairMatchingController pairMatchingController = new PairMatchingController();
-            pairMatchingController.addCrewsFromFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
